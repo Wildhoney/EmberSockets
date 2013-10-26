@@ -1,7 +1,7 @@
 EmberSockets
 ============
 
-https://travis-ci.org/Wildhoney/EmberSockets.png?branch=master
+<img src="https://travis-ci.org/Wildhoney/EmberSockets.png?branch=master" />
 &nbsp;
 <img src="https://badge.fury.io/js/ember-sockets.png" />
 
