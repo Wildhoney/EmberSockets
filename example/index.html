@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>EmberSockets Example</title>
+
+    <script type="text/javascript" src="../bower_components/socket.io-client/dist/socket.io.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="../bower_components/ember/ember.js"></script>
+    <link rel="stylesheet" type="text/css" href="../bower_components/semantic-ui/build/packaged/css/semantic.css" />
+
+    <script type="text/javascript" src="../package/ember-sockets.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+
+</head>
+<body>
+
+    <script type="text/x-handlebars">
+        {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+
+        Our cherry-picked name: {{randomName}} &ndash; <a href="javascript:void(0);" {{action "cherryPickName"}}>give me another</a>!
+
+    </script>
+
+</body>
+</html>

@@ -26,5 +26,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/Wildhoney/EmberSockets/issues"
+  },
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "socket.io": "~0.9.16"
   }
 }
