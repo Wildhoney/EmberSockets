@@ -33,16 +33,7 @@
          * @property name
          * @type {String}
          */
-        name: 'Adam',
-
-        /**
-         * @computedProperty randomName
-         * @param event {Object}
-         * @return {String}
-         */
-        randomName: function() {
-            return this.get('name');
-        }.property('name')
+        name: 'Adam'
 
     });
 

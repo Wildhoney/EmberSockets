@@ -109,7 +109,7 @@
 
                             // ...And finally we can register the event to listen for it.
                             $ember.get(module, 'socket').on(eventName, module._update.bind(module));
-                            
+
                         }
 
                     }
