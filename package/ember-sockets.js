@@ -141,15 +141,24 @@
                 if (controller) {
 
                     // Attempt to find a match for the current event name.
-                    var correspondingProperty = controller.sockets['cherryPickedName'];
+                    var correspondingAction = controller.sockets['cherryPickedName'];
 
-                    if (!correspondingProperty) {
+                    if (!correspondingAction) {
                         // If we can't find it, then we can't go any further for this controller.
                         return;
                     }
 
+                    if (typeof correspondingAction === 'function') {
+
+                        // We need to invoke the function to respond to the event because the coder
+                        // has specified a callback instead of a property to update.
+                        correspondingAction.call(controller, eventData);
+                        return;
+
+                    }
+
                     // Otherwise we can go ahead and update the property for this event. Voila!
-                    $ember.set(controller, correspondingProperty, eventData);
+                    $ember.set(controller, correspondingAction, eventData);
                     respondingControllers++;
 
                 }
@@ -208,10 +217,12 @@
              */
             initialize: function(container, application) {
 
+                // Register `socket:main` with Ember.js.
                 application.register('socket:main', application.Socket, {
                     singleton: true
                 });
 
+                // We then want to inject `socket` into each controller.
                 application.inject('controller', 'socket', 'socket:main');
 
             }

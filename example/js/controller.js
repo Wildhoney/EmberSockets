@@ -26,7 +26,15 @@
          * @type {Object}
          */
         sockets: {
-            cherryPickedName: 'name'
+
+            // Update the property from the data received.
+//            cherryPickedName: 'name',
+
+            // Update the property using a callback.
+            cherryPickedName: function(name) {
+                this.set('name', name);
+            }
+
         },
 
         /**
