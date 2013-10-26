@@ -1,0 +1,30 @@
+{
+  "name": "ember-sockets",
+  "version": "0.0.1",
+  "description": "Socket.io (WebSockets) integrated with Ember.js' observer pattern.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wildhoney/EmberSockets.git"
+  },
+  "keywords": [
+    "emberjs",
+    "ember.js",
+    "ember",
+    "websockets",
+    "ember.js",
+    "websockets",
+    "ember.js",
+    "socket.io",
+    "ember",
+    "socket.io"
+  ],
+  "author": "Adam Timberlake",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/EmberSockets/issues"
+  }
+}

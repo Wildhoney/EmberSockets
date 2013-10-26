@@ -1,0 +1,17 @@
+{
+  "name": "ember-sockets",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Wildhoney/EmberSockets",
+  "authors": [
+    "Adam Timberlake <adam.timberlake@gmail.com>"
+  ],
+  "description": "Socket.io (WebSockets) integrated with Ember.js' observer pattern.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
