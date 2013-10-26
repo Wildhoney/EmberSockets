@@ -16,6 +16,13 @@
         host: 'localhost',
 
         /**
+         * @property port
+         * @type {Number}
+         * @default 080
+         */
+        port: 80,
+
+        /**
          * @property controllers
          * @type {Array}
          * List of controllers for which the events can be emitted to.
@@ -24,26 +31,14 @@
         controllers: [],
 
         /**
-         * @property port
-         * @type {Number}
-         * @default 080
-         */
-        port: 80,
-
-        /**
          * @property socket {Object}
          * @type {Object}
          */
         socket: null,
 
-        didBecomeReady: function() {
-            alert('Okay');
-        },
-
         /**
-         * @method init
-         * Responsible for establishing a connect to the Socket.io server.
          * @constructor
+         * Responsible for establishing a connect to the Socket.io server.
          */
         init: function init() {
 
