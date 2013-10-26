@@ -54,3 +54,13 @@ As the properties are all updated with the typical `Ember.get`, all computed pro
 ```
 
 If you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by an options.
+
+<h3>Advanced Usage</h3>
+
+You may not wish to simply update a property based on the received data, in these cases you can specify a method to invoke when the event occurs. When the callback is invoked, `this` is preserved for your controller, and the event data is passed through as the first and only argument.
+
+```javascript
+cherryPickedName: function(name) {
+    this.set('name', name);
+}
+```
