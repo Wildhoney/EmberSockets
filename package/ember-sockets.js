@@ -1,5 +1,7 @@
 (function($window, $ember) {
 
+    "use strict";
+
     $window.ES = {};
 
     /**
@@ -81,35 +83,34 @@
                 getController   = this._getController.bind(this),
                 events          = [],
                 forEach         = $ember.EnumerableUtils,
-                map             = $ember.ArrayPolyfills.map,
                 module          = this;
 
             forEach.forEach(controllers, function (controllerName) {
 
                 // Fetch the controller if it's valid.
-                var controller  = getController(controllerName);
+                var controller  = getController(controllerName),
+                    eventNames  = controller.sockets;
 
                 if (controller) {
 
                     // Iterate over each event defined in the controller's `sockets` hash, so that we can
                     // keep an eye open for them.
-                    for (var eventName in controller.sockets) {
+                    for (var eventName in eventNames) {
 
-                        if (!controller.sockets.hasOwnProperty(eventName)) {
-                            // The usual suspect!
-                            continue;
+                        if (eventNames.hasOwnProperty(eventName)) {
+
+                            if (events.indexOf(eventName) !== -1) {
+                                // Don't observe this event if we're already observing it.
+                                continue;
+                            }
+
+                            // Push the event so we don't listen for it twice.
+                            events.push(eventName);
+
+                            // ...And finally we can register the event to listen for it.
+                            $ember.get(module, 'socket').on(eventName, module._update.bind(module));
+                            
                         }
-
-                        if (events.indexOf(eventName) !== -1) {
-                            // Don't observe this event if we're already observing it.
-                            continue;
-                        }
-
-                        // Push the event so we don't listen for it twice.
-                        events.push(eventName);
-
-                        // ...And finally we can register the event to listen for it.
-                        $ember.get(module, 'socket').on(eventName, module._update.bind(module));
 
                     }
 
@@ -173,7 +174,7 @@
             name = 'controller:%@'.fmt(name);
             var controller = this.container.lookup(name);
 
-            if (!controller || !'sockets' in controller) {
+            if (!controller || ('sockets' in controller === false)) {
                 // Don't do anything with this controller if it hasn't defined a `sockets` hash.
                 return false;
             }

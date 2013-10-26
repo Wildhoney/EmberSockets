@@ -29,6 +29,9 @@
   },
   "dependencies": {
     "underscore": "~1.5.2",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-jshint": "~0.7.0"
   }
 }
