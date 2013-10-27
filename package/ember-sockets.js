@@ -83,7 +83,10 @@
                 getController   = this._getController.bind(this),
                 events          = [],
                 forEach         = $ember.EnumerableUtils,
-                module          = this;
+                module          = this,
+                respond         = function respond(eventData) {
+                    module._update.call(module, this, eventData);
+                };
 
             forEach.forEach(controllers, function (controllerName) {
 
@@ -108,9 +111,7 @@
                             events.push(eventName);
 
                             // ...And finally we can register the event to listen for it.
-                            $ember.get(module, 'socket').on(eventName, function(eventData) {
-                                module._update.call(module, eventName, eventData);
-                            });
+                            $ember.get(module, 'socket').on(eventName, respond.bind(eventName));
 
                         }
 

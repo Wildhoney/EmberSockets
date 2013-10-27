@@ -1,0 +1,162 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.18
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/Wildhoney/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+12 verbose folder .
+13 info prepublish ember-sockets@0.0.3
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/Wildhoney/.npm/1f1177db-tar.lock
+16 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+17 verbose lock tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz /Users/Wildhoney/.npm/5231b79c-2781-0-15720516815781593-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+21 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+22 verbose tar unpack /var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+23 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+24 verbose lock tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package /Users/Wildhoney/.npm/42bdedbe-2781-0-15720516815781593-package.lock
+25 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+26 verbose lock tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz /Users/Wildhoney/.npm/5231b79c-2781-0-15720516815781593-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry .npmignore
+30 silly gunzTarPerm extractEntry README.md
+31 silly gunzTarPerm extractEntry Gruntfile.js
+32 silly gunzTarPerm extractEntry .travis.yml
+33 silly gunzTarPerm extractEntry .jshintrc
+34 silly gunzTarPerm extractEntry dist/ember-sockets.min.js
+35 silly gunzTarPerm extractEntry example/server.js
+36 silly gunzTarPerm extractEntry example/css/default.css
+37 silly gunzTarPerm extractEntry example/index.html
+38 silly gunzTarPerm extractEntry example/js/application.js
+39 silly gunzTarPerm extractEntry example/js/controller.js
+40 silly gunzTarPerm extractEntry package/ember-sockets.js
+41 silly gunzTarPerm extractEntry bower.json
+42 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+43 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+44 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+45 silly lockFile 5231b79c-2781-0-15720516815781593-tmp-tgz tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/tmp.tgz
+46 verbose tar pack [ '/Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz',
+46 verbose tar pack   '/var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package' ]
+47 verbose tarball /Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+48 verbose folder /var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+49 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+50 verbose lock tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package /Users/Wildhoney/.npm/42bdedbe-2781-0-15720516815781593-package.lock
+51 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+52 verbose lock tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz /Users/Wildhoney/.npm/79345df7--ember-sockets-0-0-3-package-tgz.lock
+53 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+54 silly lockFile 42bdedbe-2781-0-15720516815781593-package tar:///var/folders/x1/1qs6hn2n0_1_3f6rdcp0854h0000gn/T/npm-80349-DbRFi6_W/1382832202781-0.15720516815781593/package
+55 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+56 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+57 silly lockFile 605ec513--npm-ember-sockets-0-0-3-package /Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+58 verbose lock /Users/Wildhoney/.npm/ember-sockets/0.0.3/package /Users/Wildhoney/.npm/605ec513--npm-ember-sockets-0-0-3-package.lock
+59 silly lockFile 605ec513--npm-ember-sockets-0-0-3-package /Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+60 silly lockFile 605ec513--npm-ember-sockets-0-0-3-package /Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+61 verbose tar unpack /Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+62 silly lockFile 65dd0a2e--npm-ember-sockets-0-0-3-package tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+63 verbose lock tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package /Users/Wildhoney/.npm/65dd0a2e--npm-ember-sockets-0-0-3-package.lock
+64 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+65 verbose lock tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz /Users/Wildhoney/.npm/79345df7--ember-sockets-0-0-3-package-tgz.lock
+66 silly gunzTarPerm modes [ '755', '644' ]
+67 silly gunzTarPerm extractEntry package.json
+68 silly gunzTarPerm extractEntry .npmignore
+69 silly gunzTarPerm extractEntry README.md
+70 silly gunzTarPerm extractEntry Gruntfile.js
+71 silly gunzTarPerm extractEntry .jshintrc
+72 silly gunzTarPerm extractEntry .travis.yml
+73 silly gunzTarPerm extractEntry bower.json
+74 silly gunzTarPerm extractEntry dist/ember-sockets.min.js
+75 silly gunzTarPerm extractEntry example/server.js
+76 silly gunzTarPerm extractEntry example/css/default.css
+77 silly gunzTarPerm extractEntry example/index.html
+78 silly gunzTarPerm extractEntry example/js/application.js
+79 silly gunzTarPerm extractEntry example/js/controller.js
+80 silly gunzTarPerm extractEntry package/ember-sockets.js
+81 silly lockFile 65dd0a2e--npm-ember-sockets-0-0-3-package tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+82 silly lockFile 65dd0a2e--npm-ember-sockets-0-0-3-package tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package
+83 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+84 silly lockFile 79345df7--ember-sockets-0-0-3-package-tgz tar:///Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz
+85 verbose chmod /Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz 644
+86 verbose chown /Users/Wildhoney/.npm/ember-sockets/0.0.3/package.tgz [ 501, 20 ]
+87 silly lockFile 3a52ce78- .
+88 silly lockFile 3a52ce78- .
+89 silly publish { name: 'ember-sockets',
+89 silly publish   version: '0.0.3',
+89 silly publish   description: 'Socket.io (WebSockets) integrated with Ember.js\' observer pattern.',
+89 silly publish   main: 'index.js',
+89 silly publish   scripts: { test: 'grunt test' },
+89 silly publish   repository:
+89 silly publish    { type: 'git',
+89 silly publish      url: 'https://github.com/Wildhoney/EmberSockets.git' },
+89 silly publish   keywords:
+89 silly publish    [ 'emberjs',
+89 silly publish      'ember.js',
+89 silly publish      'ember',
+89 silly publish      'websockets',
+89 silly publish      'ember.js',
+89 silly publish      'websockets',
+89 silly publish      'ember.js',
+89 silly publish      'socket.io',
+89 silly publish      'ember',
+89 silly publish      'socket.io' ],
+89 silly publish   author: { name: 'Adam Timberlake' },
+89 silly publish   license: 'BSD-2-Clause',
+89 silly publish   bugs: { url: 'https://github.com/Wildhoney/EmberSockets/issues' },
+89 silly publish   dependencies:
+89 silly publish    { underscore: '~1.5.2',
+89 silly publish      'socket.io': '~0.9.16',
+89 silly publish      grunt: '~0.4.1',
+89 silly publish      'grunt-contrib-uglify': '~0.2.4',
+89 silly publish      'grunt-contrib-jshint': '~0.7.0' },
+89 silly publish   readme: 'EmberSockets\n============\n\n<img src="https://travis-ci.org/Wildhoney/EmberSockets.png?branch=master" />\n&nbsp;\n<img src="https://badge.fury.io/js/ember-sockets.png" />\n\nSocket.io (WebSockets) integrated with Ember.js\' observer pattern.\n\nExample\n------------\n\nYou need Node.js installed to use the example.\n\nIf you have it installed, you can simply run `node example/server.js` and then open `localhost/example/index.html` in your web-browser.\n\nGetting Started\n------------\n\nFirst of all you need to bootstrap the module, which is done very much the same way that `Ember.DS` and `Ember.Router` go about it.\n\nIn your `Ember.Application` you need to configure EmberSockets by defining the host (default is `localhost`), the port (default is `80`) and the controllers capable of responding to WebSocket events.\n\n```javascript\nwindow.App = Ember.Application.create({\n\n    Socket: ES.Module.extend({\n        host: \'localhost\',\n        port: 8888,\n        controllers: [\'cats\', \'dogs\', \'rabbits]\n    })\n\n});\n```\n\nIn the above configuration, we\'ll be attempting to connect to `localhost` on port `8888`. Only three controllers will be able to respond to WebSocket events: `CatsController`, `DogsController`, and the `RabbitsController`.\n\nTo begin responding to events, you need to create a map of events to their properties. When the event is invoked the property will be updated with the response.\n\nSince the release of Ember 1.0, you have been encouraged to place your actions into the `actions` hash on each controller &ndash; EmberSockets works in a similar way by defining the `sockets` hash.\n\n```javascript\nsockets: {\n    cherryPickedName: \'name\'\n}\n```\n\nFrom this we can deduce that whenever the `cherryPickedName` event has been invoked, the `name` property on the controller will be updated with the event\'s data.\n\nAs the properties are all updated with the typical `Ember.get`, all computed properties and observes will work as usual.\n\n```html\n<section>Your name is {{name}}!</section>\n```\n\nIf you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by an options.\n\n<h3>Advanced Usage</h3>\n\nYou may not wish to simply update a property based on the received data, in these cases you can specify a method to invoke when the event occurs. When the callback is invoked, `this` is preserved for your controller, and the event data is passed through as the first and only argument.\n\n```javascript\ncherryPickedName: function(name) {\n    this.set(\'name\', name);\n}\n```',
+89 silly publish   readmeFilename: 'README.md',
+89 silly publish   _id: 'ember-sockets@0.0.3',
+89 silly publish   dist: { shasum: '1a6162ccb078a09f8a4f13ae3b0e9b7de01e97ce' },
+89 silly publish   _from: '.' }
+90 verbose url raw ember-sockets
+91 verbose url resolving [ 'https://registry.npmjs.org/', './ember-sockets' ]
+92 verbose url resolved https://registry.npmjs.org/ember-sockets
+93 info trying registry request attempt 1 at 01:03:23
+94 http PUT https://registry.npmjs.org/ember-sockets
+95 http 409 https://registry.npmjs.org/ember-sockets
+96 verbose url raw ember-sockets
+97 verbose url resolving [ 'https://registry.npmjs.org/', './ember-sockets' ]
+98 verbose url resolved https://registry.npmjs.org/ember-sockets
+99 info trying registry request attempt 1 at 01:03:25
+100 http GET https://registry.npmjs.org/ember-sockets
+101 http 200 https://registry.npmjs.org/ember-sockets
+102 error publish fail Cannot publish over existing version.
+102 error publish fail Update the 'version' field in package.json and try again.
+102 error publish fail
+102 error publish fail If the previous version was published in error, see:
+102 error publish fail     npm help unpublish
+102 error publish fail
+102 error publish fail To automatically increment version numbers, see:
+102 error publish fail     npm help version
+103 error System Darwin 12.4.0
+104 error command "node" "/usr/local/bin/npm" "publish"
+105 error cwd /Users/Wildhoney/Webroot/EmberSockets
+106 error node -v v0.10.18
+107 error npm -v 1.3.11
+108 error code EPUBLISHCONFLICT
+109 verbose exit [ 1, true ]
