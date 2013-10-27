@@ -47,13 +47,13 @@ sockets: {
 
 From this we can deduce that whenever the `cherryPickedName` event has been invoked, the `name` property on the controller will be updated with the event's data.
 
-As the properties are all updated with the typical `Ember.get`, all computed properties and observes will work as usual.
+As the properties are all updated with the typical `Ember.get`, all computed properties and observers will work as usual.
 
 ```html
 <section>Your name is {{name}}!</section>
 ```
 
-If you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by an options.
+If you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by any options.
 
 <h3>Advanced Usage</h3>
 
