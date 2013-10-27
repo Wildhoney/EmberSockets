@@ -108,7 +108,9 @@
                             events.push(eventName);
 
                             // ...And finally we can register the event to listen for it.
-                            $ember.get(module, 'socket').on(eventName, module._update.bind(module));
+                            $ember.get(module, 'socket').on(eventName, function(eventData) {
+                                module._update.call(module, eventName, eventData);
+                            });
 
                         }
 
@@ -122,11 +124,12 @@
 
         /**
          * @method _update
+         * @param eventName {String}
          * @param eventData {String|Number|Object}
          * @return {Number} Number of controllers which responded to the event.
          * @private
          */
-        _update: function _update(eventData) {
+        _update: function _update(eventName, eventData) {
 
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
@@ -141,7 +144,7 @@
                 if (controller) {
 
                     // Attempt to find a match for the current event name.
-                    var correspondingAction = controller.sockets['cherryPickedName'];
+                    var correspondingAction = controller.sockets[eventName];
 
                     if (!correspondingAction) {
                         // If we can't find it, then we can't go any further for this controller.
