@@ -27,7 +27,7 @@ window.App = Ember.Application.create({
     Socket: ES.Module.extend({
         host: 'localhost',
         port: 8888,
-        controllers: ['cats', 'dogs', 'rabbits]
+        controllers: ['cats', 'dogs', 'rabbits']
     })
 
 });
