@@ -49,6 +49,11 @@
             var server      = 'http://%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
                 socket      = io.connect(server);
 
+            socket.on('error', function () {
+                // Throw an exception if an error occurs.
+                throw 'Unable to make a connection to the Socket.io server!';
+            });
+
             // Store a reference to the socket.
             this.set('socket', socket);
 
