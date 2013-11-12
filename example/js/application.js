@@ -7,7 +7,7 @@
         Socket: ES.Module.extend({
             host: 'localhost',
             port: 8888,
-            controllers: ['cats', 'index']
+            controllers: ['index']
         })
 
     });
