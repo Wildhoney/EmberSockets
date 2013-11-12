@@ -101,6 +101,11 @@
 
                 if (controller) {
 
+                    // Invoke the `connect` method if it has been defined on this controller.
+                    if (typeof controller.sockets === 'object' && typeof controller.sockets.connect === 'function') {
+                        controller.sockets.connect.apply(controller);
+                    }
+
                     // Iterate over each event defined in the controller's `sockets` hash, so that we can
                     // keep an eye open for them.
                     for (var eventName in eventNames) {

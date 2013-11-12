@@ -33,6 +33,16 @@
             // Update the property using a callback.
             cherryPickedName: function(name) {
                 this.set('name', name);
+            },
+
+            // When EmberSockets makes a connection to the Socket.IO server.
+            connect: function() {
+                console.log('EmberSockets has connected...');
+            },
+
+            // When EmberSockets disconnects from the Socket.IO server.
+            disconnect: function() {
+                console.log('EmberSockets has disconnected...');
             }
 
         },
