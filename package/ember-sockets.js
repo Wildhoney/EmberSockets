@@ -146,36 +146,40 @@
                 respondingControllers   = 0,
                 getController           = this._getController.bind(this);
 
-            // Iterate over each listener controller and emit the event we caught.
-            $ember.EnumerableUtils.forEach(controllers, function(controllerName) {
+            $ember.run(function() {
 
-                // Fetch the controller if it's valid.
-                var controller = getController(controllerName);
+                // Iterate over each listener controller and emit the event we caught.
+                $ember.EnumerableUtils.forEach(controllers, function(controllerName) {
 
-                if (controller) {
+                    // Fetch the controller if it's valid.
+                    var controller = getController(controllerName);
 
-                    // Attempt to find a match for the current event name.
-                    var correspondingAction = controller.sockets[eventName];
+                    if (controller) {
 
-                    if (!correspondingAction) {
-                        // If we can't find it, then we can't go any further for this controller.
-                        return;
+                        // Attempt to find a match for the current event name.
+                        var correspondingAction = controller.sockets[eventName];
+
+                        if (!correspondingAction) {
+                            // If we can't find it, then we can't go any further for this controller.
+                            return;
+                        }
+
+                        if (typeof correspondingAction === 'function') {
+
+                            // We need to invoke the function to respond to the event because the coder
+                            // has specified a callback instead of a property to update.
+                            correspondingAction.call(controller, eventData);
+                            return;
+
+                        }
+
+                        // Otherwise we can go ahead and update the property for this event. Voila!
+                        $ember.set(controller, correspondingAction, eventData);
+                        respondingControllers++;
+
                     }
 
-                    if (typeof correspondingAction === 'function') {
-
-                        // We need to invoke the function to respond to the event because the coder
-                        // has specified a callback instead of a property to update.
-                        correspondingAction.call(controller, eventData);
-                        return;
-
-                    }
-
-                    // Otherwise we can go ahead and update the property for this event. Voila!
-                    $ember.set(controller, correspondingAction, eventData);
-                    respondingControllers++;
-
-                }
+                });
 
             });
 
