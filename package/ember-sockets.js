@@ -67,12 +67,18 @@
         /**
          * @method emit
          * @param eventName {String}
-         * @param options {Object}
+         * @param params {Array}
          * Responsible for emitting an event to the waiting Socket.io server.
          * @return {void}
          */
-        emit: function emit(eventName, options) {
-            $ember.get(this, 'socket').emit(eventName, options);
+        emit: function emit(eventName, params) {
+
+            //jshint unused:false
+            var args    = Array.prototype.slice.call(arguments),
+                scope   = $ember.get(this, 'socket');
+
+            scope.emit.apply(scope, args);
+
         },
 
         /**
@@ -89,7 +95,8 @@
                 events          = [],
                 forEach         = $ember.EnumerableUtils,
                 module          = this,
-                respond         = function respond(eventData) {
+                respond         = function respond() {
+                    var eventData = Array.prototype.slice.call(arguments);
                     module._update.call(module, this, eventData);
                 };
 
@@ -168,13 +175,13 @@
 
                             // We need to invoke the function to respond to the event because the coder
                             // has specified a callback instead of a property to update.
-                            correspondingAction.call(controller, eventData);
+                            correspondingAction.apply(controller, eventData);
                             return;
 
                         }
 
                         // Otherwise we can go ahead and update the property for this event. Voila!
-                        $ember.set(controller, correspondingAction, eventData);
+                        $ember.set(controller, correspondingAction, eventData[0]);
                         respondingControllers++;
 
                     }
@@ -216,7 +223,7 @@
      * @onLoad Ember.Application
      * @param $app {Object}
      */
-    Ember.onLoad('Ember.Application', function($app) {
+    $ember.onLoad('Ember.Application', function($app) {
 
         $app.initializer({
 
