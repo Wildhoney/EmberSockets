@@ -31,8 +31,9 @@
 //            cherryPickedName: 'name',
 
             // Update the property using a callback.
-            cherryPickedName: function(name) {
+            cherryPickedName: function(name, age) {
                 this.set('name', name);
+                this.set('age', age);
             },
 
             // When EmberSockets makes a connection to the Socket.IO server.
@@ -51,7 +52,13 @@
          * @property name
          * @type {String}
          */
-        name: 'Adam'
+        name: 'Adam',
+
+        /**
+         * @property age
+         * @type {Number}
+         */
+        age: 16
 
     });
 
