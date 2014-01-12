@@ -181,7 +181,7 @@
                         }
 
                         // Otherwise we can go ahead and update the property for this event. Voila!
-                        $ember.set(controller, correspondingAction, eventData[0]);
+                        $ember.set(controller, correspondingAction, eventData);
                         respondingControllers++;
 
                     }
