@@ -1,4 +1,4 @@
-(function($window, $ember) {
+(function($window, $ember, $io) {
 
     "use strict";
 
@@ -47,7 +47,7 @@
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
             var server      = 'http://%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
-                socket      = io.connect(server);
+                socket      = $io.connect(server);
 
             socket.on('error', function () {
                 // Throw an exception if an error occurs.
@@ -100,17 +100,19 @@
                     module._update.call(module, this, eventData);
                 };
 
-            forEach.forEach(controllers, function (controllerName) {
+            forEach.forEach(controllers, function controllerIteration(controllerName) {
 
                 // Fetch the controller if it's valid.
                 var controller  = getController(controllerName),
-                    eventNames  = controller.sockets;
+                    eventNames  = controller.events;
+
+                console.log(controller);
 
                 if (controller) {
 
                     // Invoke the `connect` method if it has been defined on this controller.
-                    if (typeof controller.sockets === 'object' && typeof controller.sockets.connect === 'function') {
-                        controller.sockets.connect.apply(controller);
+                    if (typeof controller.events === 'object' && typeof controller.events.connect === 'function') {
+                        controller.events.connect.apply(controller);
                     }
 
                     // Iterate over each event defined in the controller's `sockets` hash, so that we can
@@ -164,7 +166,7 @@
                     if (controller) {
 
                         // Attempt to find a match for the current event name.
-                        var correspondingAction = controller.sockets[eventName];
+                        var correspondingAction = controller.events[eventName];
 
                         if (!correspondingAction) {
                             // If we can't find it, then we can't go any further for this controller.
@@ -197,7 +199,7 @@
         /**
          * @method _getController
          * @param name {String}
-         * Responsible for retrieving a controller if it exists, and if it has defined a `sockets` hash.
+         * Responsible for retrieving a controller if it exists, and if it has defined a `events` hash.
          * @return {Object|Boolean}
          * @private
          */
@@ -208,8 +210,8 @@
             name = 'controller:%@'.fmt(name);
             var controller = this.container.lookup(name);
 
-            if (!controller || ('sockets' in controller === false)) {
-                // Don't do anything with this controller if it hasn't defined a `sockets` hash.
+            if (!controller || ('events' in controller === false)) {
+                // Don't do anything with this controller if it hasn't defined a `events` hash.
                 return false;
             }
 
@@ -255,4 +257,4 @@
         });
     });
 
-})(window, window.Ember);
+})(window, window.Ember, window.io);

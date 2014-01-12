@@ -22,10 +22,10 @@
         },
 
         /**
-         * @property sockets
+         * @property events
          * @type {Object}
          */
-        sockets: {
+        events: {
 
             // Update the property from the data received.
 //            cherryPickedName: 'name',

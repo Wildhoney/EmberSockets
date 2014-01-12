@@ -37,10 +37,10 @@ In the above configuration, we'll be attempting to connect to `localhost` on por
 
 To begin responding to events, you need to create a map of events to their properties. When the event is invoked the property will be updated with the response.
 
-Since the release of Ember 1.0, you have been encouraged to place your actions into the `actions` hash on each controller &ndash; EmberSockets works in a similar way by defining the `sockets` hash.
+Since the release of Ember 1.0, you have been encouraged to place your actions into the `actions` hash on each controller &ndash; EmberSockets works in a similar way by defining the `events` hash.
 
 ```javascript
-sockets: {
+events: {
     cherryPickedName: 'name'
 }
 ```
