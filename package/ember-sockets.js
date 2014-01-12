@@ -49,7 +49,7 @@
             var server      = 'http://%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
                 socket      = $io.connect(server);
 
-            socket.on('error', function () {
+            socket.on('error', function socketError() {
                 // Throw an exception if an error occurs.
                 throw 'Unable to make a connection to the Socket.io server!';
             });
@@ -106,8 +106,6 @@
                 var controller  = getController(controllerName),
                     eventNames  = controller.events;
 
-                console.log(controller);
-
                 if (controller) {
 
                     // Invoke the `connect` method if it has been defined on this controller.
@@ -153,12 +151,13 @@
 
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
-                getController           = this._getController.bind(this);
+                getController           = this._getController.bind(this),
+                forEach                 =  $ember.EnumerableUtils.forEach;
 
             $ember.run(function() {
 
                 // Iterate over each listener controller and emit the event we caught.
-                $ember.EnumerableUtils.forEach(controllers, function(controllerName) {
+               forEach(controllers, function(controllerName) {
 
                     // Fetch the controller if it's valid.
                     var controller = getController(controllerName);
@@ -178,11 +177,27 @@
                             // We need to invoke the function to respond to the event because the coder
                             // has specified a callback instead of a property to update.
                             correspondingAction.apply(controller, eventData);
+                            respondingControllers++;
                             return;
 
                         }
 
-                        // Otherwise we can go ahead and update the property for this event. Voila!
+                        // Determine if the property is specifying multiple properties to update.
+                        if ($ember.isArray(correspondingAction)) {
+
+                            forEach(correspondingAction, function propertyIteration(property, index) {
+
+                                // Update each property included in the array of properties.
+                                $ember.set(controller, property, eventData[index]);
+
+                            });
+
+                            respondingControllers++;
+                            return;
+
+                        }
+
+                        // Otherwise it's a single property to update.
                         $ember.set(controller, correspondingAction, eventData);
                         respondingControllers++;
 

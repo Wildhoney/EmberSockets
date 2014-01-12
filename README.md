@@ -55,7 +55,17 @@ As the properties are all updated with the typical `Ember.get`, all computed pro
 
 If you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by any options.
 
-<h3>Advanced Usage</h3>
+<h3>Array of properties</h3>
+
+EmberSockets also allows you to specify an array of properties to update with a corresponding value. For example, if your backend responds with a name and age, then you'll want to specify an array of those two distinct properties to update.
+
+```javascript
+events: {
+    person: ['name', 'age']
+}
+```
+
+<h3>Supplying a function</h3>
 
 You may not wish to simply update a property based on the received data, in these cases you can specify a method to invoke when the event occurs. When the callback is invoked, `this` is preserved for your controller, and the event data is passed through as the first and only argument.
 
