@@ -67,7 +67,7 @@ events: {
 
 <h3>Supplying a function</h3>
 
-You may not wish to simply update a property based on the received data, in these cases you can specify a method to invoke when the event occurs. When the callback is invoked, `this` is preserved for your controller, and the event data is passed through as the first and only argument.
+You may not wish to simply update a property based on the received data, in these cases you can specify a method to invoke when the event occurs. When the callback is invoked, `this` is preserved for your controller, and the event data is passed through as the arguments.
 
 ```javascript
 cherryPickedName: function(name) {
