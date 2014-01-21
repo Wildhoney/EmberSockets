@@ -53,7 +53,7 @@ As the properties are all updated with the typical `Ember.get`, all computed pro
 <section>Your name is {{name}}!</section>
 ```
 
-If you would like to `emit` an event, you can use the `this.sockets.emit` method from **any** controller &ndash; passing in the event name followed by any options.
+If you would like to `emit` an event, you can use the `this.socket.emit` method from **any** controller &ndash; passing in the event name followed by any options.
 
 <h3>Array of properties</h3>
 
