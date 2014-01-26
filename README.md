@@ -24,7 +24,7 @@ In your `Ember.Application` you need to configure EmberSockets by defining the h
 ```javascript
 window.App = Ember.Application.create({
 
-    Socket: ES.Module.extend({
+    Socket: EmberSockets.extend({
         host: 'localhost',
         port: 8888,
         controllers: ['cats', 'dogs', 'rabbits']

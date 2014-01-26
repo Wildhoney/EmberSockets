@@ -2,13 +2,11 @@
 
     "use strict";
 
-    $window.ES = {};
-
     /**
      * @module ES
      * @subModule Module
      */
-    $window.ES.Module = $ember.ObjectController.extend({
+    $window.EmberSockets = $ember.ObjectController.extend({
 
         /**
          * @property host

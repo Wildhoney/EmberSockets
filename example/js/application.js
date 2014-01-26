@@ -4,7 +4,7 @@
 
     $window.App = Ember.Application.create({
 
-        Socket: ES.Module.extend({
+        Socket: EmberSockets.extend({
             host: 'localhost',
             port: 8888,
             controllers: ['index']

@@ -1,7 +1,3 @@
-var ember       = require('ember'),
-    handlebars  = require('handlebars'),
-    should      = require('should');
-
 describe('EmberSockets', function() {
 
     var $app;
@@ -12,7 +8,7 @@ describe('EmberSockets', function() {
 
         $app = Ember.Application.create({
 
-            Socket: ES.Module.extend({
+            Socket: EmberSockets.extend({
                 host: 'localhost',
                 port: 8888,
                 controllers: ['cats', 'index']

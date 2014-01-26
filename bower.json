@@ -19,6 +19,7 @@
     "jquery": "~2.0.3",
     "socket.io-client": "~0.9.16",
     "handlebars": "~1.0.0",
-    "semantic-ui": "*"
+    "semantic-ui": "*",
+    "jasmine": "~2.0.0"
   }
 }
