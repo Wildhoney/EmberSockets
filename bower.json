@@ -15,11 +15,11 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "~1.1.2",
     "jquery": "~2.0.3",
     "socket.io-client": "~0.9.16",
-    "handlebars": "~1.0.0",
     "semantic-ui": "*",
-    "jasmine": "~2.0.0"
+    "jasmine": "~2.0.0",
+    "ember": "~1.4.0",
+    "handlebars": "~1.3.0"
   }
 }
