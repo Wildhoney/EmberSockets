@@ -257,6 +257,13 @@
              */
             initialize: function(container, application) {
 
+                if (typeof application.Socket === 'undefined') {
+
+                    // Ensure the developer has defined `Socket` in their `Ember.Application`.
+                    throw 'You have forgotten to add `EmberSockets` into `Ember.Application`! See: https://github.com/Wildhoney/EmberSockets#getting-started';
+
+                }
+
                 // Register `socket:main` with Ember.js.
                 application.register('socket:main', application.Socket, {
                     singleton: true
