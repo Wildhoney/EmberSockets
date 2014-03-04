@@ -37,6 +37,12 @@
         socket: null,
 
         /**
+         * @constant NAMESPACE
+         * @type {String}
+         */
+        NAMESPACE: 'sockets',
+
+        /**
          * @constructor
          * Responsible for establishing a connect to the Socket.io server.
          */
@@ -102,13 +108,13 @@
 
                 // Fetch the controller if it's valid.
                 var controller  = getController(controllerName),
-                    eventNames  = controller.events;
+                    eventNames  = controller[this.NAMESPACE];
 
                 if (controller) {
 
                     // Invoke the `connect` method if it has been defined on this controller.
-                    if (typeof controller.events === 'object' && typeof controller.events.connect === 'function') {
-                        controller.events.connect.apply(controller);
+                    if (typeof controller[this.NAMESPACE] === 'object' && typeof controller[this.NAMESPACE].connect === 'function') {
+                        controller[this.NAMESPACE].connect.apply(controller);
                     }
 
                     // Iterate over each event defined in the controller's `sockets` hash, so that we can
@@ -134,7 +140,7 @@
 
                 }
 
-            });
+            }, this);
 
         },
 
@@ -150,7 +156,8 @@
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
                 getController           = this._getController.bind(this),
-                forEach                 =  $ember.EnumerableUtils.forEach;
+                forEach                 =  $ember.EnumerableUtils.forEach,
+                scope                   = this;
 
             $ember.run(function() {
 
@@ -163,7 +170,7 @@
                     if (controller) {
 
                         // Attempt to find a match for the current event name.
-                        var correspondingAction = controller.events[eventName];
+                        var correspondingAction = controller[scope.NAMESPACE][eventName];
 
                         if (!correspondingAction) {
                             // If we can't find it, then we can't go any further for this controller.
@@ -201,7 +208,7 @@
 
                     }
 
-                });
+               });
 
             });
 
@@ -223,8 +230,8 @@
             name = 'controller:%@'.fmt(name);
             var controller = this.container.lookup(name);
 
-            if (!controller || ('events' in controller === false)) {
-                // Don't do anything with this controller if it hasn't defined a `events` hash.
+            if (!controller || (this.NAMESPACE in controller === false)) {
+                // Don't do anything with this controller if it hasn't defined a `sockets` hash.
                 return false;
             }
 

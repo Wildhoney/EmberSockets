@@ -22,19 +22,19 @@
         },
 
         /**
-         * @property events
+         * @property sockets
          * @type {Object}
          */
-        events: {
+        sockets: {
 
             // Update the property from the data received.
-            cherryPickedName: ['name', 'age'],
+//            cherryPickedName: ['name', 'age'],
 
             // Update the property using a callback.
-//            cherryPickedName: function(name, age) {
-//                this.set('name', name);
-//                this.set('age', age);
-//            },
+            cherryPickedName: function(name, age) {
+                this.set('name', name);
+                this.set('age', age);
+            },
 
             // When EmberSockets makes a connection to the Socket.IO server.
             connect: function() {
