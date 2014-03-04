@@ -156,10 +156,9 @@
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
                 getController           = this._getController.bind(this),
-                forEach                 =  $ember.EnumerableUtils.forEach,
-                scope                   = this;
+                forEach                 =  $ember.EnumerableUtils.forEach;
 
-            $ember.run(function() {
+            $ember.run(this, function() {
 
                 // Iterate over each listener controller and emit the event we caught.
                forEach(controllers, function(controllerName) {
@@ -170,7 +169,7 @@
                     if (controller) {
 
                         // Attempt to find a match for the current event name.
-                        var correspondingAction = controller[scope.NAMESPACE][eventName];
+                        var correspondingAction = controller[this.NAMESPACE][eventName];
 
                         if (!correspondingAction) {
                             // If we can't find it, then we can't go any further for this controller.
@@ -208,7 +207,7 @@
 
                     }
 
-               });
+               }, this);
 
             });
 
