@@ -55,7 +55,7 @@ As the properties are all updated with the typical `Ember.get`, all computed pro
 
 If you would like to `emit` an event, you can use the `this.socket.emit` method from **any** controller &ndash; passing in the event name followed by any options.
 
-<h3>Array of properties</h3>
+<h3>Dereferencing</h3>
 
 EmberSockets also allows you to specify an array of properties to update with a corresponding value. For example, if your backend responds with a name and age, then you'll want to specify an array of those two distinct properties to update.
 
