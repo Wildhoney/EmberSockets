@@ -2,6 +2,7 @@
   "name": "ember-sockets",
   "version": "0.5.0",
   "homepage": "https://github.com/Wildhoney/EmberSockets",
+  "main": "dist/ember-sockets.min.js",
   "authors": [
     "Adam Timberlake <adam.timberlake@gmail.com>"
   ],
