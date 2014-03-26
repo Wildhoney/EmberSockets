@@ -130,9 +130,12 @@
 
                             // Push the event so we don't listen for it twice.
                             events.push(eventName);
-
-                            // ...And finally we can register the event to listen for it.
-                            $ember.get(module, 'socket').on(eventName, respond.bind(eventName));
+                            
+                            // Check to ensure the event was not previously registered due to a reconnect
+                            if(!$ember.get(module, 'socket').$events[eventName]){
+                                // ...And finally we can register the event to listen for it.
+                                $ember.get(module, 'socket').on(eventName, respond.bind(eventName));
+                            }
 
                         }
 
