@@ -14,6 +14,13 @@
          * @default 'localhost'
          */
         host: 'localhost',
+        
+        /**
+         * @property secure
+         * @type {Bool}
+         * @default false
+         */
+        secure: false,
 
         /**
          * @property port
@@ -50,7 +57,8 @@
 
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
-            var server      = 'http://%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
+            var scheme      = $ember.get(this, 'secure') == true ? 'https://' : 'http://';
+            var server      = scheme+'%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
                 socket      = $io.connect(server);
 
             socket.on('error', function socketError() {
