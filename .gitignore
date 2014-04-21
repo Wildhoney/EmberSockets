@@ -1,4 +1,5 @@
-/bower_components
+/example/js/vendor
+!/example/js/vendor/.gitkeep
 /node_modules
 /.idea
 dump.rdb
