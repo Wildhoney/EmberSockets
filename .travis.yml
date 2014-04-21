@@ -1,13 +1,17 @@
 language: node_js
-
 node_js:
-   - "0.10"
-
+- '0.10'
 before_script:
-  - npm -q install
-  - npm -q install -g grunt-cli
-  - npm -q install -g bower
-  - bower install
-
+- npm -q install
+- npm -q install -g grunt-cli
+- npm -q install -g bower
+- bower install
 script:
-  - grunt test
+- grunt test
+deploy:
+  provider: heroku
+  api_key:
+    secure: I8BgxqUfzgADs2tIfMst+0C1I6/qFvQVMHdWxhaUG+h+pV+xFtbAMzQAfdMZusV/KemyH3iKr6Hj03K79P7s7Xcij8VCPERa4G4OIXVA+NEXs57uZt9dupEnmht4HUB11uxyYprSzuiOFekxifc0xIEUEfpfGDbJDzRp+pgtwNM=
+  app: ember-sockets
+  on:
+    repo: Wildhoney/EmberSockets
