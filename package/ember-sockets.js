@@ -50,8 +50,11 @@
 
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
-            var server      = 'http://%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
-                socket      = $io.connect(server);
+            var host   = $ember.get(this, 'host'),
+                port   = $ember.get(this, 'port'),
+                path   = $ember.get(this, 'path') || '',
+                server = 'http://%@:%@/%@'.fmt(host, port, path),
+                socket = $io.connect(server);
 
             socket.on('error', function socketError() {
                 // Throw an exception if an error occurs.
