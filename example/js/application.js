@@ -8,6 +8,7 @@
             host: 'localhost',
             port: 8888,
             path: 'sockets',
+            scheme: 'ws',
             controllers: ['index']
         })
 
