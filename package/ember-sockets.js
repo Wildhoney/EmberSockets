@@ -9,6 +9,12 @@
     $window.EmberSockets = $ember.ObjectController.extend({
 
         /**
+         * @constant NAMESPACE
+         * @type {String}
+         */
+        NAMESPACE: 'sockets',
+
+        /**
          * @property host
          * @type {String}
          * @default 'localhost'
@@ -18,33 +24,29 @@
         /**
          * @property port
          * @type {Number}
-         * @default 080
+         * @default 80
          */
         port: 80,
 
         /**
+         * List of controllers for which the events can be emitted to.
+         *
          * @property controllers
          * @type {Array}
-         * List of controllers for which the events can be emitted to.
          * @default []
          */
         controllers: [],
 
         /**
          * @property socket {Object}
-         * @type {Object}
+         * @type {Object|null}
          */
         socket: null,
 
         /**
-         * @constant NAMESPACE
-         * @type {String}
-         */
-        NAMESPACE: 'sockets',
-
-        /**
-         * @constructor
          * Responsible for establishing a connect to the Socket.io server.
+         *
+         * @constructor
          */
         init: function init() {
 
@@ -73,10 +75,11 @@
         },
 
         /**
+         * Responsible for emitting an event to the waiting Socket.io server.
+         *
          * @method emit
          * @param eventName {String}
          * @param params {Array}
-         * Responsible for emitting an event to the waiting Socket.io server.
          * @return {void}
          */
         emit: function emit(eventName, params) {
@@ -90,9 +93,10 @@
         },
 
         /**
-         * @method _listen
          * Responsible for listening to events from Socket.io, and updating controller properties that
          * subscribe to those events.
+         *
+         * @method _listen
          * @return {void}
          * @private
          */
@@ -223,9 +227,10 @@
         },
 
         /**
+         * Responsible for retrieving a controller if it exists, and if it has defined a `events` hash.
+         * 
          * @method _getController
          * @param name {String}
-         * Responsible for retrieving a controller if it exists, and if it has defined a `events` hash.
          * @return {Object|Boolean}
          * @private
          */
