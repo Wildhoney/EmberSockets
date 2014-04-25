@@ -56,8 +56,9 @@
                 port   = $ember.get(this, 'port'),
                 scheme = $ember.get(this, 'scheme') || 'http',
                 path   = $ember.get(this, 'path') || '',
+                options = $ember.get(this, 'options') || {},
                 server = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
-                socket = $io.connect(server);
+                socket = $io.connect(server, options);
 
             socket.on('error', function socketError() {
                 // Throw an exception if an error occurs.
