@@ -20,6 +20,13 @@
          * @default 'localhost'
          */
         host: 'localhost',
+        
+        /**
+         * @property secure
+         * @type {Bool}
+         * @default false
+         */
+        secure: false,
 
         /**
          * @property port
@@ -54,7 +61,7 @@
             // a connection.
             var host   = $ember.get(this, 'host'),
                 port   = $ember.get(this, 'port'),
-                scheme = $ember.get(this, 'scheme') || 'http',
+		scheme = $ember.get(this, 'secure') === true ? 'https://' : 'http://',
                 path   = $ember.get(this, 'path') || '',
                 options = $ember.get(this, 'options') || {},
                 server = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
