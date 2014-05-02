@@ -57,7 +57,7 @@
 
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
-            var scheme      = $ember.get(this, 'secure') == true ? 'https://' : 'http://';
+            var scheme      = $ember.get(this, 'secure') === true ? 'https://' : 'http://';
             var server      = scheme+'%@:%@'.fmt($ember.get(this, 'host'), $ember.get(this, 'port')),
                 socket      = $io.connect(server);
 
