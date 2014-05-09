@@ -61,7 +61,7 @@
             // a connection.
             var host   = $ember.get(this, 'host'),
                 port   = $ember.get(this, 'port'),
-		scheme = $ember.get(this, 'secure') === true ? 'https://' : 'http://',
+		scheme = $ember.get(this, 'secure') === true ? 'https' : 'http',
                 path   = $ember.get(this, 'path') || '',
                 options = $ember.get(this, 'options') || {},
                 server = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
