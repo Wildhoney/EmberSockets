@@ -67,10 +67,7 @@
                 server = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
                 socket = $io.connect(server, options);
 
-            socket.on('error', function socketError() {
-                // Throw an exception if an error occurs.
-                throw 'Unable to make a connection to the Socket.io server!';
-            });
+            socket.on('error', this.error);
 
             // Store a reference to the socket.
             this.set('socket', socket);
@@ -80,6 +77,11 @@
              */
             socket.on('connect', this._listen.bind(this));
 
+        },
+        
+        error: function(){
+            // Throw an exception if an error occurs.
+            throw 'Unable to make a connection to the Socket.io server!';
         },
 
         /**
