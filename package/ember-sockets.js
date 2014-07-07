@@ -20,7 +20,7 @@
          * @default 'localhost'
          */
         host: 'localhost',
-        
+
         /**
          * @property secure
          * @type {Bool}
@@ -59,13 +59,13 @@
 
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
-            var host   = $ember.get(this, 'host'),
-                port   = $ember.get(this, 'port'),
-		scheme = $ember.get(this, 'secure') === true ? 'https' : 'http',
-                path   = $ember.get(this, 'path') || '',
+            var host    = $ember.get(this, 'host'),
+                port    = $ember.get(this, 'port'),
+                scheme  = $ember.get(this, 'secure') === true ? 'https' : 'http',
+                path    = $ember.get(this, 'path') || '',
                 options = $ember.get(this, 'options') || {},
-                server = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
-                socket = $io.connect(server, options);
+                server  = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
+                socket  = $io(server, options);
 
             socket.on('error', this.error);
 
@@ -78,7 +78,7 @@
             socket.on('connect', this._listen.bind(this));
 
         },
-        
+
         error: function(){
             // Throw an exception if an error occurs.
             throw 'Unable to make a connection to the Socket.io server!';
@@ -148,11 +148,13 @@
 
                             // Push the event so we don't listen for it twice.
                             events.push(eventName);
-                            
+
                             // Check to ensure the event was not previously registered due to a reconnect
-                            if(!$ember.get(module, 'socket').$events[eventName]){
+                            if (!(eventName in $ember.get(module, 'socket')._callbacks)) {
+
                                 // ...And finally we can register the event to listen for it.
                                 $ember.get(module, 'socket').on(eventName, respond.bind(eventName));
+
                             }
 
                         }
@@ -182,7 +184,7 @@
             $ember.run(this, function() {
 
                 // Iterate over each listener controller and emit the event we caught.
-               forEach(controllers, function(controllerName) {
+                forEach(controllers, function(controllerName) {
 
                     // Fetch the controller if it's valid.
                     var controller = getController(controllerName);
@@ -228,7 +230,7 @@
 
                     }
 
-               }, this);
+                }, this);
 
             });
 
@@ -238,7 +240,7 @@
 
         /**
          * Responsible for retrieving a controller if it exists, and if it has defined a `events` hash.
-         * 
+         *
          * @method _getController
          * @param name {String}
          * @return {Object|Boolean}
