@@ -6,7 +6,8 @@
         app         = express(),
         server      = require('http').createServer(app),
         io          = require('socket.io').listen(server),
-        fs          = require('fs');
+        fs          = require('fs'),
+        _           = require('underscore');
 
     // Begin Express so the statistics are available from the `localPort`.
     app.use(express.static(__dirname + '/../example'));
