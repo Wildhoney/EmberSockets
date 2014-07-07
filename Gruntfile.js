@@ -4,12 +4,14 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
+        
         jshint: {
             all: ['package/ember-sockets.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
         },
+        
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -18,14 +20,32 @@ module.exports = function(grunt) {
                 src: 'package/ember-sockets.js',
                 dest: 'dist/<%= pkg.name %>.min.js'
             }
+        },
+
+        copy: {
+            main: {
+                files: [
+                    { flatten: true, src: ['package/ember-sockets.js'], dest: 'dist/ember-sockets.js' }
+                ]
+            },
+            test: {
+                src: 'package/ember-sockets.js',
+                dest: 'example/js/vendor/ember-sockets/ember-sockets.js'
+            },
+            release: {
+                src: 'releases/<%= pkg.version %>.zip',
+                dest: 'releases/master.zip'
+            }
+
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('build', ['uglify']);
-    grunt.registerTask('default', ['jshint', 'uglify']);
+    grunt.registerTask('build', ['uglify', 'copy']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'copy']);
 
 };
