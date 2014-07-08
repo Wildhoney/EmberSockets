@@ -299,8 +299,9 @@
                     singleton: true
                 });
 
-                // We then want to inject `socket` into each controller.
+                // We then want to inject `socket` into each controller and route.
                 application.inject('controller', 'socket', 'socket:main');
+                application.inject('route', 'socket', 'socket:main');
 
             }
 
