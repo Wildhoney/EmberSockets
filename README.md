@@ -10,6 +10,12 @@ Socket.io (WebSockets) integrated with Ember.js' observer pattern.
 Example
 ------------
 
+Install EmberSockets:
+
+ * `npm install`;
+ * `grunt install`;
+ * `grunt build`;
+
 You need Node.js installed to use the example.
 
 If you have it installed, you can simply run `node example/server.js` and then open `localhost/example/index.html` in your web-browser.
