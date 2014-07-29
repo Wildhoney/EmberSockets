@@ -13,7 +13,6 @@ Example
 Install EmberSockets:
 
  * `npm install`;
- * `grunt install`;
  * `grunt build`;
 
 You need Node.js installed to use the example.
