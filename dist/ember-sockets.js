@@ -23,7 +23,7 @@
 
         /**
          * @property secure
-         * @type {Bool}
+         * @type {Boolean}
          * @default false
          */
         secure: false,
@@ -31,9 +31,9 @@
         /**
          * @property port
          * @type {Number}
-         * @default 80
+         * @default null
          */
-        port: 80,
+        port: null,
 
         /**
          * List of controllers for which the events can be emitted to.
@@ -64,7 +64,7 @@
                 scheme  = $ember.get(this, 'secure') === true ? 'https' : 'http',
                 path    = $ember.get(this, 'path') || '',
                 options = $ember.get(this, 'options') || {},
-                server  = '%@://%@:%@/%@'.fmt(scheme, host, port, path),
+                server  = !port ? '%@://%@/%@'.fmt(scheme, host, path) : '%@://%@:%@/%@'.fmt(scheme, host, port, path),
                 socket  = $io(server, options);
 
             socket.on('error', this.error);
@@ -79,9 +79,15 @@
 
         },
 
-        error: function(){
+        /**
+         * @method error
+         * @return {void}
+         */
+        error: function() {
+
             // Throw an exception if an error occurs.
             throw 'Unable to make a connection to the Socket.io server!';
+
         },
 
         /**
