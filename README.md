@@ -47,7 +47,10 @@ Since the release of Ember 1.0, you have been encouraged to place your actions i
 
 ```javascript
 sockets: {
-    cherryPickedName: 'name'
+    cherryPickedName: 'name',
+
+    // support mulit words event name also
+    'cherry picked name': 'name'
 }
 ```
 
