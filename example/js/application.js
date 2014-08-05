@@ -6,6 +6,7 @@
 
         Socket: EmberSockets.extend({
             host: 'localhost',
+            port: 3502,
             controllers: ['index']
         })
 
