@@ -1,13 +1,17 @@
 language: node_js
+
 node_js:
-- '0.10'
+  - '0.10'
+  - '0.11'
+
 before_script:
-- npm -q install
-- npm -q install -g grunt-cli
-- npm -q install -g bower
-- bower install
+  - npm install
+  - bower install
+  - grunt build
+
 script:
-- grunt test
+  - grunt test
+
 deploy:
   provider: heroku
   api_key:
