@@ -34,7 +34,6 @@
             socket.emit('cherryPickedName', _.sample(names), Math.floor(Math.random() * 30) + 1);
         });
 
-
         socket.on('pick name like this', function(name) {
             socket.emit('pick name like this', _.sample(names), Math.floor(Math.random() * 30) + 1);
         });

@@ -20,7 +20,7 @@
             },
 
             'pick name like this': function() {
-              this.socket.emit('pick name like this');
+                this.socket.emit('pick name like this');
             }
 
         },
@@ -62,7 +62,7 @@
          * @type {String}
          */
         name: 'Adam',
-        name1: '',
+        name1: 'Maria',
 
         /**
          * @property age
