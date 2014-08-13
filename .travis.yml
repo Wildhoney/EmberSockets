@@ -4,16 +4,14 @@ node_js:
   - '0.10'
   - '0.11'
 
-before_script:
-  - npm install
-  - bower install
-  - grunt build
-
 script:
   - grunt test
+  - npm install
+  - bower install
 
 deploy:
   provider: heroku
+  skip_cleanup: true
   api_key:
     secure: I8BgxqUfzgADs2tIfMst+0C1I6/qFvQVMHdWxhaUG+h+pV+xFtbAMzQAfdMZusV/KemyH3iKr6Hj03K79P7s7Xcij8VCPERa4G4OIXVA+NEXs57uZt9dupEnmht4HUB11uxyYprSzuiOFekxifc0xIEUEfpfGDbJDzRp+pgtwNM=
   app: ember-sockets
