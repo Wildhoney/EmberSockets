@@ -19,7 +19,7 @@
          * @type {String}
          * @default 'localhost'
          */
-        host: 'localhost',
+        host: '',
 
         /**
          * @property secure
@@ -57,14 +57,32 @@
          */
         init: function init() {
 
+            /**
+             * @property server
+             * @type {String}
+             */
+            var server = '';
+
+            (function determineHost(controller) {
+
+                var host    = $ember.get(controller, 'host'),
+                    port    = $ember.get(controller, 'port'),
+                    scheme  = $ember.get(controller, 'secure') === true ? 'https' : 'http',
+                    path    = $ember.get(controller, 'path') || '';
+
+                if (!host && !port) {
+                    return;
+                }
+
+                // Use the host to compile the connect string.
+                server = !port ? '%@://%@/%@'.fmt(scheme, host, path)
+                    : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
+
+            })(this);
+
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
-            var host    = $ember.get(this, 'host'),
-                port    = $ember.get(this, 'port'),
-                scheme  = $ember.get(this, 'secure') === true ? 'https' : 'http',
-                path    = $ember.get(this, 'path') || '',
-                options = $ember.get(this, 'options') || {},
-                server  = !port ? '%@://%@/%@'.fmt(scheme, host, path) : '%@://%@:%@/%@'.fmt(scheme, host, port, path),
+            var options = $ember.get(this, 'options') || {},
                 socket  = $io(server, options);
 
             socket.on('error', this.error);
