@@ -11,19 +11,12 @@
     "url": "https://github.com/Wildhoney/EmberSockets.git"
   },
   "keywords": [
-    "emberjs",
-    "ember.js",
-    "ember",
-    "websockets",
-    "ember.js",
-    "websockets",
-    "ember.js",
-    "socket.io",
-    "ember",
-    "socket.io"
+    "ember websockets",
+    "ember socket.io",
+    "ember sockets"
   ],
   "author": "Adam Timberlake",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Wildhoney/EmberSockets/issues"
   },

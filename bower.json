@@ -6,6 +6,11 @@
   "authors": [
     "Adam Timberlake <adam.timberlake@gmail.com>"
   ],
+  "keywords": [
+    "ember websockets",
+    "ember socket.io",
+    "ember sockets"
+  ],
   "description": "Socket.io (WebSockets) integrated with Ember.js' observer pattern.",
   "license": "MIT",
   "ignore": [
