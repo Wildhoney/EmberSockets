@@ -99,12 +99,14 @@
 
         /**
          * @method error
+         * @param errorData {Object}
          * @return {void}
          */
-        error: function() {
+        error: function(errorData) {
 
             // Throw an exception if an error occurs.
-            throw 'Unable to make a connection to the Socket.io server!';
+            $window.console.error(errorData);
+            throw 'EmberSockets: An error occurred.';
 
         },
 
