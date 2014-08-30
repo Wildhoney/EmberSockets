@@ -1,4 +1,4 @@
-(function($window, $ember, $io) {
+(function($window, $ember, $io, $jq) {
 
     "use strict";
 
@@ -51,11 +51,29 @@
         socket: null,
 
         /**
-         * Responsible for establishing a connect to the Socket.io server.
-         *
-         * @constructor
+         * @method init
+         * @return {void}
          */
         init: function init() {
+
+            if ($ember.get(this, 'autoConnect')) {
+
+                // Connect immediately to the WebSockets server unless the developer has decided
+                // to disable the auto-connect option.
+                this.connect();
+
+            }
+
+        },
+
+        /**
+         * Responsible for establishing a connect to the Socket.io server.
+         *
+         * @method connect
+         * @param params {Object}
+         * @return {void}
+         */
+        connect: function connect(params) {
 
             /**
              * @property server
@@ -76,14 +94,14 @@
 
                 // Use the host to compile the connect string.
                 server = !port ? '%@://%@/%@'.fmt(scheme, host, path)
-                    : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
+                               : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
 
             })(this);
 
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
             var options = $ember.get(this, 'options') || {},
-                socket  = $io(server, options);
+                socket  = $io(server, $jq.extend(options, params || {}));
 
             socket.on('error', this.error);
 
@@ -334,4 +352,4 @@
         });
     });
 
-})(window, window.Ember, window.io);
+})(window, window.Ember, window.io, window.jQuery);

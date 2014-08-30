@@ -51,11 +51,28 @@
         socket: null,
 
         /**
-         * Responsible for establishing a connect to the Socket.io server.
-         *
-         * @constructor
+         * @method init
+         * @return {void}
          */
         init: function init() {
+
+            if ($ember.get(this, 'autoConnect')) {
+
+                // Connect immediately to the WebSockets server unless the developer has decided
+                // to disable the auto-connect option.
+                this.connect();
+
+            }
+
+        },
+
+        /**
+         * Responsible for establishing a connect to the Socket.io server.
+         *
+         * @method connect
+         * @return {void}
+         */
+        connect: function connect() {
 
             /**
              * @property server
@@ -76,7 +93,7 @@
 
                 // Use the host to compile the connect string.
                 server = !port ? '%@://%@/%@'.fmt(scheme, host, path)
-                    : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
+                               : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
 
             })(this);
 

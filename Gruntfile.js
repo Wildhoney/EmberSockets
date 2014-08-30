@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         
         jshint: {
-            all: ['package/ember-sockets.js'],
+            all: ['package/EmberSockets.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'package/ember-sockets.js',
+                src: 'package/EmberSockets.js',
                 dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
@@ -25,11 +25,11 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    { flatten: true, src: ['package/ember-sockets.js'], dest: 'dist/ember-sockets.js' }
+                    { flatten: true, src: ['package/EmberSockets.js'], dest: 'dist/ember-sockets.js' }
                 ]
             },
             test: {
-                src: 'package/ember-sockets.js',
+                src: 'package/EmberSockets.js',
                 dest: 'example/js/vendor/ember-sockets/ember-sockets.js'
             },
             release: {

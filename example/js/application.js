@@ -5,7 +5,8 @@
     $window.App = Ember.Application.create({
 
         Socket: EmberSockets.extend({
-            controllers: ['index']
+            controllers: ['index'],
+            autoConnect: false
         })
 
     });
