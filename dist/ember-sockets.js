@@ -1,4 +1,4 @@
-(function($window, $ember, $io) {
+(function($window, $ember, $io, $jq) {
 
     "use strict";
 
@@ -70,9 +70,10 @@
          * Responsible for establishing a connect to the Socket.io server.
          *
          * @method connect
+         * @param params {Object}
          * @return {void}
          */
-        connect: function connect() {
+        connect: function connect(params) {
 
             /**
              * @property server
@@ -100,7 +101,7 @@
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
             var options = $ember.get(this, 'options') || {},
-                socket  = $io(server, options);
+                socket  = $io(server, $jq.extend(options, params || {}));
 
             socket.on('error', this.error);
 
@@ -351,4 +352,4 @@
         });
     });
 
-})(window, window.Ember, window.io);
+})(window, window.Ember, window.io, window.jQuery);
