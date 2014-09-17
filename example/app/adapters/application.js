@@ -6,8 +6,6 @@
  * paul@shopapps.co.uk
  *
  * NOTES:  This is a ember-cli file used to create a socket adapter
-  to use, change the line in the init: function where it says window.Myapp.__container__ 
-  so that Myapp is the name of your App 
  */
 import Ember from 'ember';
 import DS from "ember-data";
@@ -16,11 +14,8 @@ export default DS.Adapter.extend({
 	needs: ['application'],
 	init: function() {
 		console.log("STARTING SOCKET ADAPTER");
-		/*
-		 * Put your module name here (relace Myapp).
-		 * todo: find a better method of getting the socket reference...
-		 */
-		this.socket = window.Myapp.__container__.lookup('socket:Main');
+		
+		this.socket = this.container.lookup('socket:main').socket;
 		this._super();
 	},
 	
@@ -33,7 +28,7 @@ export default DS.Adapter.extend({
         */
         return new Ember.RSVP.Promise(function (resolve, reject) {
             try {
-            	if(!adapter.socket.socket.connected)
+            	if(!adapter.socket.connected)
                 {
             		console.log('[Adapter] App.Socket is not yet connected');
             		reject({ message : 'App.Socket is not yet connected'});
