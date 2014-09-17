@@ -83,3 +83,76 @@ cherryPickedName: function(name) {
     this.set('name', name);
 }
 ```
+
+Ember-cli Adapater Example
+------------
+In **example/app/adapaters/application.js** you will find an **ember-data** socket adapter for Models in ember-cli. To use simply copy this to into your Apps file structure in **app/adapters/application.js**.
+
+By default all Models will try and get data from the ember-sockets connection.
+
+<h4>NodeJS/Express Server Side example code snippet</h4>
+<code>
+
+    socket.on('findAll', function(data, callback) {
+		console.log('['+nsp+']' + " | findall: ", data);
+		console.log('['+nsp+']' + " typeof: ", typeof callback);
+		var _this = this;
+		var dataOut = {};
+		/*
+		* Put all your database lookups in here....
+		*/
+		switch(data.type) {
+			case'message': 	getMessages(data.query, callback); 	break;
+			case'user':		getUsers(data.query, callback);		break;
+		}
+				
+	});
+	
+	socket.on('find', function(data, callback) {	
+			console.log('['+nsp+']' + "-------DB-------");
+			console.log('['+nsp+']' + " | find: ", data);
+			console.log('['+nsp+']' + " typeof: ", typeof callback);
+				
+			var dataOut = {status: true, content: [{test:'test'}]};
+				
+			if(typeof callback === 'function') callback(dataOut);
+	});
+	
+	// then the functions to collect & return the actual data
+	getMessages = function(query, cb) {
+		var dataOut = {status: true, content: [{
+	        id: 1,
+	        text: "Hello You There?",
+	        sender: "David Bazan",
+	        time: 'now',
+	        user: 1
+	    	},
+	    	{
+			id: 2,
+			text: "Huh? what time is it?",
+			sender: "Bon Iver",
+			time: 'yesterday',
+			user: 2
+		}]
+		};
+		if(typeof cb === 'function') cb(dataOut);
+	};
+	
+	getUsers = function(query, cb) {
+		var dataOut = {status: true, content: [{
+		        id: 1,
+		        name: "Paul",
+		        img: "/assets/img/profiles/d.jpg"
+	    	},
+	    	{
+	    		id: 2,
+		        name: "Paul2",
+		        img: "/assets/img/profiles/d.jpg"
+	    	}]
+		};
+		if(typeof cb === 'function') cb(dataOut);
+	};
+	
+			
+</code>
+
