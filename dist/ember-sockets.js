@@ -70,7 +70,7 @@
          * Responsible for establishing a connect to the Socket.io server.
          *
          * @method connect
-         * @param params {Object}
+         * @param [params={}] {Object}
          * @return {void}
          */
         connect: function connect(params) {

@@ -1,12 +1,12 @@
 {
   "name": "ember-sockets",
-  "version": "0.6.10",
+  "version": "0.7.0",
   "description": "Socket.io (WebSockets) integrated with Ember.js' observer pattern.",
   "main": "dist/ember-sockets.min.js",
   "scripts": {
-      "test": "grunt test",
-      "start": "node example/server.js",
-      "postinstall": "bower install; grunt build"
+    "test": "grunt test",
+    "start": "node example/server.js",
+    "postinstall": "bower install; grunt build"
   },
   "repository": {
     "type": "git",

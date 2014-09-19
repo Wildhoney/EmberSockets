@@ -18,7 +18,8 @@
      * @type {String[]}
      */
     var names = ['Adam', 'Masha', 'Baki', 'Vaidas', 'Dhruv', 'Gabriele', 'Javier',
-                 'Noemi', 'Dmitri', 'Simon', 'Artem', 'Raj', 'Mark', 'Mide'];
+                 'Noemi', 'Dmitri', 'Simon', 'Artem', 'Raj', 'Mark', 'Mide', 'Richard',
+                 'Ahmed', 'John', 'Martha', 'Emmanuel', 'Roy'];
 
     /**
      * @on connection

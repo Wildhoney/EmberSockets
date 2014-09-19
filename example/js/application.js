@@ -6,7 +6,7 @@
 
         Socket: EmberSockets.extend({
             controllers: ['index'],
-            autoConnect: false
+            autoConnect: true
         })
 
     });
