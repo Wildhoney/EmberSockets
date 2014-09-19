@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/application.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
     <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -23,8 +24,11 @@
 
     <script type="text/x-handlebars" data-template-name="index">
 
-      pick name with <strong>cherryPickName</strong>: {{name}} (aged {{age}}) &ndash; 
-      <a href="javascript:void(0);" {{action "cherryPickName"}}>give me another</a>!
+        <section class="person">
+            <label>Cherry-picked</label> {{name}}, <label>aged</label> {{age}}
+            &mdash;
+            <a href="javascript:void(0);" {{action "cherryPickName"}}>Give me another</a>!
+        </section>
 
     </script>
 

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section.person {
+    padding: 30px;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+section.person label {
+    color: rgba(0, 0, 0, .35);
+}
+
+section.person a {
+    color: dodgerblue;
+    text-decoration: underline;
+}
