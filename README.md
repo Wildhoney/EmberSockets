@@ -39,7 +39,7 @@ window.App = Ember.Application.create({
 });
 ```
 
-In the above configuration, we'll be attempting to connect to `localhost` on port `8888`. Only three controllers will be able to respond to WebSocket events: `CatsController`, `DogsController`, and the `RabbitsController`.
+In the above configuration, we'll be attempting to connect to `localhost` on port `8888`. Only three controllers will be able to respond to WebSocket events: `CatsController`, `DogsController`, and the `RabbitsController`. If you'd like the connection to occur automatically, you can set `autoConnect: true`.
 
 To begin responding to events, you need to create a map of events to their properties. When the event is invoked the property will be updated with the response.
 
