@@ -84,6 +84,36 @@ cherryPickedName: function(name) {
 }
 ```
 
+Using autoConnect=false
+------------
+Defer the connection by setting autoConnect to false.
+
+```javascript
+$window.App = Ember.Application.create({
+
+  Socket: EmberSockets.extend({
+    controllers: ['index'],
+    autoConnect: false
+  })
+
+});
+```
+
+And then in your controller – such as your ApplicationController, manually connect to the WebSockets server using the connect method, passing in any params into the connect method:
+
+```javascript
+this.socket.connect({
+  query: { token: 123 }
+});
+```
+
+Also, if you'd like to connect using a socket.io namespace
+```javascript
+this.socket.connect({
+  namespace: '/my-namespace'
+});
+```
+
 Ember-cli Adapater Example
 ------------
 In **example/app/adapaters/application.js** you will find an **ember-data** socket adapter for Models in ember-cli. To use simply copy this to into your Apps file structure in **app/adapters/application.js**.
@@ -91,7 +121,8 @@ In **example/app/adapaters/application.js** you will find an **ember-data** sock
 By default all Models will try and get data from the ember-sockets connection.
 
 <h4>NodeJS/Express Server Side example code snippet</h4>
-<code>
+
+```javascript
 
     socket.on('findAll', function(data, callback) {
 		console.log('['+nsp+']' + " | findall: ", data);
@@ -105,19 +136,19 @@ By default all Models will try and get data from the ember-sockets connection.
 			case'message': 	getMessages(data.query, callback); 	break;
 			case'user':		getUsers(data.query, callback);		break;
 		}
-				
+
 	});
-	
-	socket.on('find', function(data, callback) {	
+
+	socket.on('find', function(data, callback) {
 			console.log('['+nsp+']' + "-------DB-------");
 			console.log('['+nsp+']' + " | find: ", data);
 			console.log('['+nsp+']' + " typeof: ", typeof callback);
-				
+
 			var dataOut = {status: true, content: [{test:'test'}]};
-				
+
 			if(typeof callback === 'function') callback(dataOut);
 	});
-	
+
 	// then the functions to collect & return the actual data
 	getMessages = function(query, cb) {
 		var dataOut = {status: true, content: [{
@@ -137,7 +168,7 @@ By default all Models will try and get data from the ember-sockets connection.
 		};
 		if(typeof cb === 'function') cb(dataOut);
 	};
-	
+
 	getUsers = function(query, cb) {
 		var dataOut = {status: true, content: [{
 		        id: 1,
@@ -152,7 +183,4 @@ By default all Models will try and get data from the ember-sockets connection.
 		};
 		if(typeof cb === 'function') cb(dataOut);
 	};
-	
-			
-</code>
-
+```
