@@ -101,7 +101,7 @@
             // Create the host:port string for connecting, and then attempt to establish
             // a connection.
             var options = $ember.get(this, 'options') || {},
-                socket  = $io(server, $jq.extend(options, params || {}));
+                socket  = $io(params ? params.namespace: server, $jq.extend(options, params || {}));
 
             socket.on('error', this.error);
 
