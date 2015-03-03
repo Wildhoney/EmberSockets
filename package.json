@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Wildhoney/EmberSockets/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "bower": "^1.3.9",
     "ember": "^1.0.0-pre.m2",
     "express": "^4.8.4",
