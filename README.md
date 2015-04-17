@@ -114,9 +114,9 @@ this.socket.connect({
 });
 ```
 
-Ember-cli Adapater Example
+Ember-cli Adapter Example
 ------------
-In **example/app/adapaters/application.js** you will find an **ember-data** socket adapter for Models in ember-cli. To use simply copy this to into your Apps file structure in **app/adapters/application.js**.
+In **example/app/adapters/application.js** you will find an **ember-data** socket adapter for Models in ember-cli. To use simply copy this to into your Apps file structure in **app/adapters/application.js**.
 
 By default all Models will try and get data from the ember-sockets connection.
 
