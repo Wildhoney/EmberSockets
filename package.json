@@ -1,6 +1,6 @@
 {
   "name": "ember-sockets",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Socket.io (WebSockets) integrated with Ember.js' observer pattern.",
   "main": "dist/ember-sockets.min.js",
   "scripts": {
