@@ -111,7 +111,7 @@
             /**
              * @on connect
              */
-            socket.on('connect', this._listen.bind(this));
+            socket.on('connect', Ember.run.bind(this, this._listen));
 
         },
 
@@ -157,7 +157,7 @@
         _listen: function _listen() {
 
             var controllers     = $ember.get(this, 'controllers'),
-                getController   = this._getController.bind(this),
+                getController   = Ember.run.bind(this, this._getController),
                 events          = [],
                 forEach         = $ember.EnumerableUtils,
                 module          = this,
@@ -222,8 +222,8 @@
 
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
-                getController           = this._getController.bind(this),
-                forEach                 =  $ember.EnumerableUtils.forEach;
+                getController           = Ember.run.bind(this, this._getController),
+                forEach                 = $ember.EnumerableUtils.forEach;
 
             $ember.run(this, function() {
 
