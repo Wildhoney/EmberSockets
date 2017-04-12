@@ -6,7 +6,7 @@
      * @module ES
      * @subModule Module
      */
-    $window.EmberSockets = $ember.ObjectController.extend({
+    $window.EmberSockets = $ember.Controller.extend({
 
         /**
          * @constant NAMESPACE
@@ -325,11 +325,10 @@
 
             /**
              * @method initialize
-             * @param container {Object}
              * @param application {Object}
              * @return {void}
              */
-            initialize: function(container, application) {
+            initialize: function(application) {
 
                 if (typeof application.Socket === 'undefined') {
 
