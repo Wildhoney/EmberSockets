@@ -93,8 +93,8 @@
                 }
 
                 // Use the host to compile the connect string.
-                server = !port ? '%@://%@/%@'.fmt(scheme, host, path)
-                               : '%@://%@:%@/%@'.fmt(scheme, host, port, path);
+                server = !port ? `${scheme}://${host}/${path}`
+                               : `${scheme}://${host}:${port}/${path}`;
 
             })(this);
 
@@ -159,14 +159,13 @@
             var controllers     = $ember.get(this, 'controllers'),
                 getController   = Ember.run.bind(this, this._getController),
                 events          = [],
-                forEach         = $ember.EnumerableUtils,
                 module          = this,
                 respond         = function respond() {
                     var eventData = Array.prototype.slice.call(arguments);
                     module._update.call(module, this, eventData);
                 };
 
-            forEach.forEach(controllers, function controllerIteration(controllerName) {
+            controllers.forEach(function controllerIteration(controllerName) {
 
                 // Fetch the controller if it's valid.
                 var controller  = getController(controllerName),
@@ -222,13 +221,12 @@
 
             var controllers             = $ember.get(this, 'controllers'),
                 respondingControllers   = 0,
-                getController           = Ember.run.bind(this, this._getController),
-                forEach                 = $ember.EnumerableUtils.forEach;
+                getController           = Ember.run.bind(this, this._getController);
 
             $ember.run(this, function() {
 
                 // Iterate over each listener controller and emit the event we caught.
-                forEach(controllers, function(controllerName) {
+                controllers.forEach(function(controllerName) {
 
                     // Fetch the controller if it's valid.
                     var controller = getController(controllerName);
@@ -256,7 +254,8 @@
                         // Determine if the property is specifying multiple properties to update.
                         if ($ember.isArray(correspondingAction)) {
 
-                            forEach(correspondingAction, function propertyIteration(property, index) {
+                          correspondingAction.forEach(
+                            function propertyIteration(property, index) {
 
                                 // Update each property included in the array of properties.
                                 $ember.set(controller, property, eventData[index]);
@@ -294,8 +293,8 @@
 
             // Format the `name` to match what the lookup container is expecting, and then
             // we'll locate the controller from the `container`.
-            name = 'controller:%@'.fmt(name);
-            var controller = this.container.lookup(name);
+            name = `controller:${name}`;
+            var controller = Ember.getOwner(this).lookup(name);
 
             if (!controller || (this.NAMESPACE in controller === false)) {
                 // Don't do anything with this controller if it hasn't defined a `sockets` hash.
