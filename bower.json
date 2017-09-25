@@ -1,6 +1,6 @@
 {
   "name": "ember-sockets",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "homepage": "https://github.com/Wildhoney/EmberSockets",
   "main": "dist/ember-sockets.min.js",
   "authors": [
@@ -21,7 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "ember": ">=1.6.0",
+    "ember": ">=2.0",
     "socket.io-client": "~1.0.6"
   },
   "devDependencies": {
