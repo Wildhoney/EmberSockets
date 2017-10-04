@@ -1,8 +1,8 @@
 {
   "name": "ember-sockets",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "homepage": "https://github.com/Wildhoney/EmberSockets",
-  "main": "dist/ember-sockets.min.js",
+  "main": "dist/ember-sockets.js",
   "authors": [
     "Adam Timberlake <adam.timberlake@gmail.com>"
   ],
