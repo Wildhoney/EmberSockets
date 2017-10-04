@@ -5,6 +5,7 @@
   "main": "dist/ember-sockets.js",
   "scripts": {
     "test": "grunt test",
+    "build": "grunt build",
     "start": "node example/server.js",
     "postinstall": "bower install; grunt build"
   },
